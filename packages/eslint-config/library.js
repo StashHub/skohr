@@ -1,11 +1,11 @@
 import resolve from 'node:path';
 
-const project = resolve(process.cwd(), "tsconfig.json");
+const project = resolve(process.cwd(), 'tsconfig.json');
 
-/** @type {import("eslint").Linter.Config} */
+/** @type {import('eslint').Linter.Config} */
 const config = {
-  extends: ["eslint:recommended", "prettier", "eslint-config-turbo"],
-  plugins: ["only-warn"],
+  extends: ['eslint:recommended', 'prettier', 'eslint-config-turbo'],
+  plugins: ['only-warn'],
   globals: {
     React: true,
     JSX: true,
@@ -14,7 +14,7 @@ const config = {
     node: true,
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: {
         project,
       },
@@ -22,13 +22,13 @@ const config = {
   },
   ignorePatterns: [
     // ignore dot files
-    ".*.js",
-    "node_modules/",
-    "dist/",
+    '.*.js',
+    'node_modules/',
+    'dist/',
   ],
   overrides: [
     {
-      files: ["*.js?(x)", "*.ts?(x)"],
+      files: ['*.js?(x)', '*.ts?(x)'],
     },
   ],
 };
