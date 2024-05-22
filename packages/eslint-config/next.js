@@ -1,4 +1,4 @@
-import resolve from 'node:path';
+const { resolve } = require('node:path');
 
 const project = resolve(process.cwd(), 'tsconfig.json');
 
@@ -6,6 +6,8 @@ const project = resolve(process.cwd(), 'tsconfig.json');
 const config = {
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
     'prettier',
     require.resolve('@vercel/style-guide/eslint/next'),
     'eslint-config-turbo',
@@ -18,7 +20,7 @@ const config = {
     node: true,
     browser: true,
   },
-  plugins: ['only-warn'],
+  plugins: ['only-warn', '@typescript-eslint'],
   settings: {
     'import/resolver': {
       typescript: {
@@ -31,6 +33,32 @@ const config = {
     '.*.js',
     'node_modules/',
   ],
+  rules: {
+    '@typescript-eslint/array-type': 'off',
+    '@typescript-eslint/consistent-type-definitions': 'off',
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
+      {
+        'prefer': 'type-imports',
+        'fixStyle': 'inline-type-imports'
+      }
+    ],
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        'argsIgnorePattern': '^_'
+      }
+    ],
+    '@typescript-eslint/require-await': 'off',
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        'checksVoidReturn': {
+          'attributes': false
+        }
+      }
+    ]
+  },
   overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
 };
 
