@@ -1,11 +1,7 @@
 {
   "extends": "@repo/tsconfig/nextjs.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-    }
+    "plugins": [{ "name": "next" }]
   },
   "include": [
     ".eslintrc.cjs",

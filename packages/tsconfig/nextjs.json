@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "next.js",
+  "display": "Next.js",
   "extends": "./base.json",
   "compilerOptions": {
     "plugins": [{ "name": "next" }],
@@ -11,6 +11,9 @@
     "noEmit": true,
     "checkJs": true,
     "forceConsistentCasingInFileNames": true,
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@ui/*": ["../../packages/ui/src/*"]
+    }
   }
 }

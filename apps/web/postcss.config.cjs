@@ -1,7 +1,1 @@
-const config = {
-  plugins: {
-    tailwindcss: {},
-  },
-};
-
-module.exports = config;
+export { default } from "@repo/ui/postcss.config";
