@@ -1,4 +1,4 @@
-const { resolve } = require("node:path");
+import resolve from 'node:path';
 
 const project = resolve(process.cwd(), "tsconfig.json");
 
@@ -9,7 +9,7 @@ const project = resolve(process.cwd(), "tsconfig.json");
  */
 
 /** @type {import("eslint").Linter.Config} */
-module.exports = {
+const config = {
   extends: ["eslint:recommended", "prettier", "eslint-config-turbo"],
   plugins: ["only-warn"],
   globals: {
@@ -27,7 +27,7 @@ module.exports = {
     },
   },
   ignorePatterns: [
-    // Ignore dotfiles
+    // ignore dot files
     ".*.js",
     "node_modules/",
     "dist/",
@@ -37,3 +37,5 @@ module.exports = {
     { files: ["*.js?(x)", "*.ts?(x)"] },
   ],
 };
+
+module.exports = config
