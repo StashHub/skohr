@@ -5,7 +5,7 @@ const config = {
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
     'project': './tsconfig.lint.json',
-    'tsconfigRootDir': __dirname,
+    'tsconfigRootDir': '__dirname',
   },
   'rules': {
     'no-redeclare': 'off',
