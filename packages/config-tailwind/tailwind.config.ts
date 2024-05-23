@@ -8,8 +8,6 @@ export default {
   content: [
     // apps content
     './src/**/*.{ts,tsx}',
-    // components content
-    './components/**/*.{ts,tsx}',
     // packages content
     '../../packages/**/*.{ts,tsx}',
   ],
