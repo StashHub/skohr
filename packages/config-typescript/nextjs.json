@@ -8,9 +8,7 @@
     "moduleResolution": "bundler",
     "allowJs": true,
     "jsx": "preserve",
-    "noEmit": true,
     "checkJs": true,
-    "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "paths": {
       "@ui/*": ["../../packages/ui/src/*"]

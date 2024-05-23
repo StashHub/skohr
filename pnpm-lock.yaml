@@ -19,7 +19,7 @@ importers:
         version: link:packages/config-eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:packages/tsconfig
+        version: link:packages/config-typescript
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -59,7 +59,7 @@ importers:
         version: link:../../packages/config-eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/tsconfig
+        version: link:../../packages/config-typescript
       '@types/eslint':
         specifier: ^8.56.5
         version: 8.56.5
@@ -102,7 +102,7 @@ importers:
         version: link:../../packages/config-eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/tsconfig
+        version: link:../../packages/config-typescript
       '@types/eslint':
         specifier: ^8.56.5
         version: 8.56.5
@@ -146,7 +146,7 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
-  packages/tsconfig: {}
+  packages/config-typescript: {}
 
   packages/ui:
     dependencies:
@@ -177,7 +177,7 @@ importers:
         version: link:../config-eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../tsconfig
+        version: link:../config-typescript
       '@turbo/gen':
         specifier: ^1.12.4
         version: 1.12.4(@types/node@20.11.24)(typescript@5.3.3)
