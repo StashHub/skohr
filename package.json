@@ -9,7 +9,7 @@
     "type-check": "turbo type-check",
     "test": "turbo test",
     "clean": "turbo clean",
-    "prepare": "husky install",
+    "prepare": "husky",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "ui:add": "pnpm --filter @repo/ui ui:add"
   },
