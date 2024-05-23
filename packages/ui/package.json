@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/shared-utils": "workspace:*",
+    "@repo/utils": "workspace:*",
+    "@repo/types": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^1.12.4",
     "@types/eslint": "^8.56.5",

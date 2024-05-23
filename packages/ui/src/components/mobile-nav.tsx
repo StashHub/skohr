@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { type NavItem } from '@/types';
-import { cn } from '@repo/shared-utils/cn';
+import { type NavItem } from '@repo/types';
+import { cn } from '@repo/utils/cn';
 import { useLockBody } from '@ui/hooks/use-lock-body';
 import { Icons } from '@repo/ui/components/ui/icons';
 
@@ -37,7 +37,7 @@ export function MobileNav({ items, children }: MobileNavProps) {
               {items.map((item, index) => (
                 <Link
                   key={index}
-                  href={item.disabled ? '#' : item.href}
+                  href={item.disabled ? '#' : item.href!}
                   className={cn(
                     'flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline',
                     item.disabled && 'cursor-not-allowed opacity-60'

@@ -4,7 +4,7 @@ import { MainNav } from '@repo/ui/components/main-nav';
 import { marketing } from '@/config/marketing';
 import { type PropsWithChildren } from 'react';
 import { Icons } from '@repo/ui/components/ui/icons';
-import { cn } from '@repo/shared-utils/cn';
+import { cn } from '@repo/utils/cn';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (

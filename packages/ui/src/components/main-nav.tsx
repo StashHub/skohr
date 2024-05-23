@@ -4,8 +4,8 @@ import * as React from 'react';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import Link from 'next/link';
 
-import { type NavMenuItem } from '@/types';
-import { cn } from '@repo/shared-utils/cn';
+import { type NavMenuItem } from '@repo/types';
+import { cn } from '@repo/utils/cn';
 import { Icons } from '@ui/components/ui/icons';
 import { MobileNav } from '@ui/components/mobile-nav';
 import { type PropsWithChildren, useState } from 'react';

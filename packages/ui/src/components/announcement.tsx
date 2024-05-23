@@ -1,8 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 
-import { Separator } from '@/components/ui/separator';
-import { Icons } from '@/components/ui/icons';
-import { cn } from '@/lib/utils';
+import { Separator } from '@ui/components/ui/separator';
+import { Icons } from '@ui/components/ui/icons';
+import { cn } from '@repo/utils/cn';
 
 type AnnouncementProps = React.HTMLAttributes<HTMLAnchorElement> & {
   href: string;

@@ -8,7 +8,7 @@ import {
 } from '@repo/ui/components/page-header';
 import { buttonVariants } from '@repo/ui/components/ui/button';
 import { Icons } from '@repo/ui/components/ui/icons';
-import { cn } from '@repo/shared-utils/cn';
+import { cn } from '@repo/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
 

@@ -16,10 +16,10 @@ importers:
         version: 19.2.2
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:packages/config-eslint
+        version: link:packages/eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:packages/config-typescript
+        version: link:packages/tsconfig
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -56,10 +56,10 @@ importers:
         version: 14.1.1
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/config-eslint
+        version: link:../../packages/eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/config-typescript
+        version: link:../../packages/tsconfig
       '@types/eslint':
         specifier: ^8.56.5
         version: 8.56.5
@@ -99,16 +99,19 @@ importers:
         version: 14.1.1
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/config-eslint
-      '@repo/shared-utils':
-        specifier: workspace:*
-        version: link:../../packages/shared-utils
+        version: link:../../packages/eslint
       '@repo/tailwind-config':
         specifier: workspace:*
-        version: link:../../packages/config-tailwind
+        version: link:../../packages/tailwind
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/config-typescript
+        version: link:../../packages/tsconfig
+      '@repo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@types/eslint':
         specifier: ^8.56.5
         version: 8.56.5
@@ -137,7 +140,7 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
-  packages/config-eslint:
+  packages/eslint:
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.1.0
@@ -161,7 +164,7 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
-  packages/config-tailwind:
+  packages/tailwind:
     dependencies:
       '@tailwindcss/typography':
         specifier: ^0.5.13
@@ -172,31 +175,18 @@ importers:
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../config-typescript
+        version: link:../tsconfig
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
 
-  packages/config-typescript: {}
+  packages/tsconfig: {}
 
-  packages/shared-utils:
-    dependencies:
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      tailwind-merge:
-        specifier: ^2.3.0
-        version: 2.3.0
+  packages/types:
     devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../config-eslint
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../config-typescript
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
+        version: link:../tsconfig
 
   packages/ui:
     dependencies:
@@ -245,13 +235,16 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../config-eslint
-      '@repo/shared-utils':
+        version: link:../eslint
+      '@repo/types':
         specifier: workspace:*
-        version: link:../shared-utils
+        version: link:../types
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../config-typescript
+        version: link:../tsconfig
+      '@repo/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@turbo/gen':
         specifier: ^1.12.4
         version: 1.12.4(@types/node@20.11.24)(typescript@5.3.3)
@@ -282,6 +275,25 @@ importers:
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+
+  packages/utils:
+    dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      tailwind-merge:
+        specifier: ^2.3.0
+        version: 2.3.0
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../tsconfig
       typescript:
         specifier: ^5.3.3
         version: 5.3.3

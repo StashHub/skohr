@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { signIn } from 'next-auth/react';
 
-import { cn } from '@repo/shared-utils/cn';
+import { cn } from '@repo/utils/cn';
 import { Icons } from '@ui/components/ui/icons';
 import { Button } from '@ui/components/ui/button';
 import { Input } from '@ui/components/ui/input';

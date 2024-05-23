@@ -1,5 +1,3 @@
-import { Icons } from '@repo/ui/components/ui/icons';
-
 export type NavItem = {
   title: string;
   href?: string;
