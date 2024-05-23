@@ -1,9 +1,18 @@
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
+import tailwindcssAnimate from 'tailwindcss-animate';
+import tailwindcssTypography from '@tailwindcss/typography';
 
-// We want each package to be responsible for its own content.
-const config: Omit<Config, 'content'> = {
+export default {
   darkMode: ['class'],
+  content: [
+    // apps content
+    './src/**/*.{ts,tsx}',
+    // components content
+    './components/**/*.{ts,tsx}',
+    // packages content
+    '../../packages/**/*.{ts,tsx}',
+  ],
   theme: {
     container: {
       center: true,
@@ -72,6 +81,5 @@ const config: Omit<Config, 'content'> = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
-};
-export default config;
+  plugins: [tailwindcssAnimate, tailwindcssTypography],
+} satisfies Config;
