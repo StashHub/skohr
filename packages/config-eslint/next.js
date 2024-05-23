@@ -28,11 +28,9 @@ const config = {
       },
     },
   },
-  ignorePatterns: [
-    // ignore dot files
-    '.*.js',
-    'node_modules/',
-  ],
+  // ignore dot files
+  ignorePatterns: ['.*.js', 'node_modules/'],
+  overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
   rules: {
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
@@ -59,7 +57,6 @@ const config = {
       }
     ]
   },
-  overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
 };
 
 module.exports = config
