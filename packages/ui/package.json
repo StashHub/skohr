@@ -25,13 +25,25 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.4.2",
     "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
+    "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
-    "class-variance-authority": "^0.7.0"
+    "@radix-ui/react-toast": "^1.1.5",
+    "class-variance-authority": "^0.7.0",
+    "framer-motion": "^11.2.6",
+    "lucide-react": "^0.379.0",
+    "next": "^14.1.1",
+    "next-auth": "^4.24.7",
+    "react-hook-form": "^7.51.5",
+    "react-wrap-balancer": "^1.1.0",
+    "zod": "^3.23.8"
   },
   "exports": {
-    "./globals.css": "./src/globals.css",
+    "./styles.css": "./src/styles.css",
     "./postcss.config": "./postcss.config.cjs",
-    "./components/*": "./src/components/ui/*.tsx"
+    "./components/ui/*": "./src/components/ui/*.tsx",
+    "./components/*": "./src/components/*.tsx"
   }
 }
