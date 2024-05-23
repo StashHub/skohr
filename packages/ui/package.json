@@ -42,7 +42,7 @@
     "zod": "^3.23.8"
   },
   "exports": {
-    "./styles.css": "./src/styles.css",
+    "./styles.css": "./src/styles/globals.css",
     "./postcss.config": "./postcss.config.cjs",
     "./components/ui/*": "./src/components/ui/*.tsx",
     "./components/*": "./src/components/*.tsx"

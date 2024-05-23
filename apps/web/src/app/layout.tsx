@@ -1,6 +1,6 @@
-import '@/styles/globals.css';
+import '@repo/ui/styles.css';
 
-import { TRPCReactProvider } from '@/trpc/react';
+// import { TRPCReactProvider } from '@/trpc/react';
 import { Inter } from 'next/font/google';
 import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next';
@@ -57,7 +57,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang='en'>
       <body className={`font-sans ${fontSans.variable}`}>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        {/* <TRPCReactProvider>{children}</TRPCReactProvider> */}
+        {children}
         <Toaster />
       </body>
     </html>
