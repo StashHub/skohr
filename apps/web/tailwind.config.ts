@@ -1,1 +1,1 @@
-export * from '../../packages/tailwind/tailwind.config.js';
+export * from '@repo/tailwind-config/tailwind.config.js';
