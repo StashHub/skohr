@@ -14,7 +14,8 @@
     "lint": "eslint . --max-warnings 0",
     "prebuild": "npm run generate",
     "predev": "npm run generate",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "clean": "rm -rf node_modules"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2"

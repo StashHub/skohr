@@ -2,9 +2,7 @@
   "extends": "@repo/typescript-config/react.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@ui/*": ["./src/*"]
-    }
+    "paths": { "@ui/*": ["./src/*"] }
   },
   "include": ["."],
   "exclude": ["node_modules"]
