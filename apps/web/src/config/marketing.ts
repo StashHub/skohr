@@ -1,4 +1,4 @@
-import { type NavMenuItem, type NavItem } from '@repo/types';
+import { type NavMenuItem } from '@repo/types';
 
 export const marketing: NavMenuItem[] = [
   {

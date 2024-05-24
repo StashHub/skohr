@@ -4,14 +4,18 @@
   "type": "module",
   "scripts": {
     "build": "turbo build",
+    "db:migrate:deploy": "turbo db:migrate:deploy",
+    "db:push": "turbo db:push",
+    "db:seed": "turbo db:seed",
     "dev": "turbo dev",
-    "lint": "turbo lint",
     "type-check": "turbo type-check",
     "test": "turbo test",
     "clean": "turbo clean",
     "prepare": "husky",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "ui:add": "pnpm --filter @repo/ui ui:add"
+    "generate": "turbo generate",
+    "ui:add": "pnpm --filter @repo/ui ui:add",
+    "lint": "turbo lint"
   },
   "lint-staged": {
     "apps/**/*.{js,jsx,ts,tsx}": [

@@ -2,7 +2,7 @@ import '@repo/ui/styles.css';
 
 // import { TRPCReactProvider } from '@/trpc/react';
 import { Inter } from 'next/font/google';
-import { siteConfig } from '../config/site';
+import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next';
 import { type PropsWithChildren } from 'react';
 import { Toaster } from '@repo/ui/components/ui/toaster';
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: '@oasis',
+    creator: '@skohr',
   },
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  icons: { icon: ['/favicon.ico?v=4'] },
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

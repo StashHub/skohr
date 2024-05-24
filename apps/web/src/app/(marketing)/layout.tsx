@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { buttonVariants } from '@repo/ui/components/ui/button';
 import { MainNav } from '@repo/ui/components/main-nav';
-import { marketing } from '../../config/marketing';
+import { marketing } from '@/config/marketing'
 import { type PropsWithChildren } from 'react';
 import { Icons } from '@repo/ui/components/ui/icons';
 import { cn } from '@repo/utils/cn';

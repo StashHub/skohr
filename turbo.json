@@ -6,17 +6,20 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
+    "lint": { "dependsOn": ["^lint"] },
     "type-check": {},
     "test": {},
     "dev": {
       "cache": false,
       "persistent": true
     },
-    "clean": {
-      "cache": false
+    "clean": {},
+    "db:migrate:deploy": {},
+    "db:push": {},
+    "db:seed": {},
+    "db:studio": {},
+    "generate": {
+      "dependsOn": ["^generate"]
     }
   }
 }

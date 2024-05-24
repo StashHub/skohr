@@ -11,7 +11,8 @@
     "checkJs": true,
     "incremental": true,
     "paths": {
-      "@ui/*": ["../../packages/ui/src/*"]
+      "@ui/*": ["../../packages/ui/src/*"],
+      "@/*": ["../../apps/web/src/*"]
     }
   }
 }
