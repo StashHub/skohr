@@ -1,0 +1,19 @@
+{
+  "name": "@skohr/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "tailwind.config.ts"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules"
+  },
+  "devDependencies": {
+    "@skohr/tsconfig": "workspace:*",
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.13",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}
