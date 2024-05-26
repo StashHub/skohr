@@ -1,5 +1,5 @@
 {
-  "name": "@repo/database",
+  "name": "@skohr/db",
   "version": "0.0.0",
   "exports": {
     "./*": "./src/client.ts"
@@ -15,14 +15,14 @@
     "prebuild": "npm run generate",
     "predev": "npm run generate",
     "studio": "prisma studio",
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@skohr/eslint-config": "*",
+    "@skohr/tsconfig": "*",
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",
     "prisma": "^5.10.2",

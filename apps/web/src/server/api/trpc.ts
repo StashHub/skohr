@@ -3,7 +3,7 @@ import superjson from 'superjson';
 import { ZodError } from 'zod';
 
 import { getServerAuthSession } from '@/server/auth';
-import { prisma } from '@repo/database/prisma';
+import { prisma } from '@skohr/db/prisma';
 
 /**
  * Defines the 'contexts' available in the backend API, allowing access to resources like

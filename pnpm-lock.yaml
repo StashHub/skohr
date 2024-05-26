@@ -38,7 +38,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@repo/ui':
+      '@skohr/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -54,12 +54,12 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.1.1
         version: 14.1.1
-      '@repo/eslint-config':
+      '@skohr/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/eslint
-      '@repo/typescript-config':
+        version: link:../../tooling/eslint
+      '@skohr/tsconfig':
         specifier: workspace:*
-        version: link:../../packages/tsconfig
+        version: link:../../tooling/typescript
       '@types/eslint':
         specifier: ^8.56.5
         version: 8.56.5
@@ -84,10 +84,10 @@ importers:
       '@auth/prisma-adapter':
         specifier: ^2.1.0
         version: 2.1.0(@prisma/client@5.14.0)
-      '@repo/database':
+      '@skohr/db':
         specifier: workspace:*
-        version: link:../../packages/database
-      '@repo/ui':
+        version: link:../../packages/db
+      '@skohr/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       '@t3-oss/env-nextjs':
@@ -130,21 +130,21 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.1.1
         version: 14.1.1
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint
-      '@repo/tailwind-config':
-        specifier: workspace:*
-        version: link:../../packages/tailwind
       '@repo/types':
         specifier: workspace:*
         version: link:../../packages/types
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
       '@repo/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      '@skohr/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@skohr/tailwind-config':
+        specifier: workspace:*
+        version: link:../../tooling/tailwind
+      '@skohr/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       '@types/eslint':
         specifier: ^8.56.5
         version: 8.56.5
@@ -176,18 +176,18 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
-  packages/database:
+  packages/db:
     dependencies:
       '@prisma/client':
         specifier: ^5.10.2
         version: 5.14.0(prisma@5.14.0)
     devDependencies:
-      '@repo/eslint-config':
+      '@skohr/eslint-config':
         specifier: '*'
-        version: link:../eslint
-      '@repo/typescript-config':
+        version: link:../../tooling/eslint
+      '@skohr/tsconfig':
         specifier: '*'
-        version: link:../tsconfig
+        version: link:../../tooling/typescript
       '@types/node':
         specifier: ^20.11.24
         version: 20.11.24

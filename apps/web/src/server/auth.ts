@@ -15,7 +15,7 @@ import Signin from '@/components/emails/signin';
 import Activation from '@/components/emails/activation';
 
 import { env } from '@/env';
-import { prisma } from '@repo/database/prisma';
+import { prisma } from '@skohr/db/prisma';
 import { v4 as uuid } from 'uuid';
 import { resend } from '@/lib/resend';
 
