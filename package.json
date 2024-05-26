@@ -15,7 +15,7 @@
     "prepare": "husky",
     "generate": "turbo generate",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "ui:add": "pnpm --filter @repo/ui ui:add"
+    "ui:add": "pnpm -F ui ui:add"
   },
   "lint-staged": {
     "(apps|packages)/**/*.{js,ts,jsx,tsx}": [

@@ -297,18 +297,18 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint
       '@repo/types':
         specifier: workspace:*
         version: link:../types
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../tsconfig
       '@repo/utils':
         specifier: workspace:*
         version: link:../utils
+      '@skohr/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@skohr/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       '@turbo/gen':
         specifier: ^1.12.4
         version: 1.12.4(@types/node@20.11.24)(typescript@5.3.3)
