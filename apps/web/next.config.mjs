@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  transpilePackages: ["@repo/ui"],
+  /** enables hot reloading for local packages without a build step */
+  transpilePackages: [
+    "@skohr/api",
+    "@skohr/auth",
+    "@skohr/db",
+    "@skohr/ui"
+  ],
   images: {
     remotePatterns: [{
       hostname: 'avatars.githubusercontent.com'

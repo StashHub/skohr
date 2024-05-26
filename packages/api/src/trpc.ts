@@ -2,7 +2,7 @@ import { initTRPC, TRPCError } from '@trpc/server';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
 
-import { getServerAuthSession } from '@/server/auth';
+import type { Session } from '@skohr/auth';
 import { prisma } from '@skohr/db/prisma';
 
 /**
@@ -12,9 +12,16 @@ import { prisma } from '@skohr/db/prisma';
  *
  * @see https://trpc.io/docs/server/context
  */
-export const createTRPCContext = async (opts: { headers: Headers }) => {
-  const session = await getServerAuthSession();
-  return { prisma, session, ...opts };
+export const createTRPCContext = async (opts: {
+  headers: Headers;
+  session: Session | null;
+}) => {
+  const session = opts.session;
+  const source = opts.headers.get('x-trpc-source') ?? 'unknown';
+
+  console.log('tRPC request: ', source, 'by', session?.user);
+
+  return { session, prisma };
 };
 
 /**

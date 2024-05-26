@@ -3,15 +3,16 @@ import 'server-only';
 import { headers } from 'next/headers';
 import { cache } from 'react';
 
-import { createCaller } from '@/server/api/root';
-import { createTRPCContext } from '@/server/api/trpc';
+import { auth } from '@skohr/auth';
+import { createCaller, createTRPCContext } from '@skohr/api';
 
 // Create a cached tRPC context for React Server Components
-const createContext = cache(() => {
+const createContext = cache(async () => {
   const heads = new Headers(headers());
   heads.set('x-trpc-source', 'rsc');
 
   return createTRPCContext({
+    session: await auth(),
     headers: heads,
   });
 });

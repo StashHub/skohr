@@ -1,12 +1,8 @@
 import { z } from 'zod';
+import type { TRPCRouterRecord } from '@trpc/server';
+import { authProcedure, publicProcedure } from '../trpc';
 
-import {
-  createTRPCRouter,
-  authProcedure,
-  publicProcedure,
-} from '@/server/api/trpc';
-
-export const postRouter = createTRPCRouter({
+export const postRouter = {
   hello: publicProcedure
     .input(z.object({ text: z.string() }))
     .query(({ input }) => {
@@ -21,7 +17,7 @@ export const postRouter = createTRPCRouter({
       // simulate a slow db call
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      return ctx.db.post.create({
+      return ctx.prisma.post.create({
         data: {
           name: input.name,
           createdBy: { connect: { id: ctx.session.user.id } },
@@ -30,7 +26,7 @@ export const postRouter = createTRPCRouter({
     }),
 
   getLatest: authProcedure.query(({ ctx }) => {
-    return ctx.db.post.findFirst({
+    return ctx.prisma.post.findFirst({
       orderBy: { createdAt: 'desc' },
       where: { createdBy: { id: ctx.session.user.id } },
     });
@@ -39,4 +35,4 @@ export const postRouter = createTRPCRouter({
   getSecretMessage: authProcedure.query(() => {
     return 'you can now see this secret message!';
   }),
-});
+} satisfies TRPCRouterRecord;
