@@ -4,6 +4,9 @@
 node_modules
 .pnp.*
 
+# database
+db.sqlite*
+
 # testing
 /coverage
 
