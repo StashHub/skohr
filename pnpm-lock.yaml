@@ -14,12 +14,12 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
-      '@repo/eslint-config':
+      '@skohr/eslint-config':
         specifier: workspace:*
-        version: link:packages/eslint
-      '@repo/typescript-config':
+        version: link:tooling/eslint
+      '@skohr/tsconfig':
         specifier: workspace:*
-        version: link:packages/tsconfig
+        version: link:tooling/typescript
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -204,53 +204,11 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
-  packages/eslint:
-    devDependencies:
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^7.1.0
-        version: 7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3)
-      '@typescript-eslint/parser':
-        specifier: ^7.1.0
-        version: 7.1.0(eslint@8.57.0)(typescript@5.3.3)
-      '@vercel/style-guide':
-        specifier: ^5.2.0
-        version: 5.2.0(eslint@8.57.0)(prettier@3.2.5)(typescript@5.3.3)
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@8.57.0)
-      eslint-config-turbo:
-        specifier: ^1.12.4
-        version: 1.12.4(eslint@8.57.0)
-      eslint-plugin-only-warn:
-        specifier: ^1.1.0
-        version: 1.1.0
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-
-  packages/tailwind:
-    dependencies:
-      '@tailwindcss/typography':
-        specifier: ^0.5.13
-        version: 0.5.13(tailwindcss@3.4.3)
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.3)
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../tsconfig
-      tailwindcss:
-        specifier: ^3.4.3
-        version: 3.4.3
-
-  packages/tsconfig: {}
-
   packages/types:
     devDependencies:
-      '@repo/typescript-config':
+      '@skohr/tsconfig':
         specifier: workspace:*
-        version: link:../tsconfig
+        version: link:../../tooling/typescript
 
   packages/ui:
     dependencies:
@@ -352,12 +310,12 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
     devDependencies:
-      '@repo/eslint-config':
+      '@skohr/eslint-config':
         specifier: workspace:*
-        version: link:../eslint
-      '@repo/typescript-config':
+        version: link:../../tooling/eslint
+      '@skohr/tsconfig':
         specifier: workspace:*
-        version: link:../tsconfig
+        version: link:../../tooling/typescript
       typescript:
         specifier: ^5.3.3
         version: 5.3.3

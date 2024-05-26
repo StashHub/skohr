@@ -6,9 +6,9 @@
     "index.d.ts"
   ],
   "scripts": {
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf .turbo node_modules"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*"
+    "@skohr/tsconfig": "workspace:*"
   }
 }
