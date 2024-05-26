@@ -1,0 +1,11 @@
+{
+  "extends": "@skohr/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    }
+  },
+  "include": ["."],
+  "exclude": ["node_modules"]
+}
