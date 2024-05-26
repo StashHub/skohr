@@ -1,11 +1,11 @@
-import '@repo/ui/styles.css';
+import '@skohr/ui/styles.css';
 
 // import { TRPCReactProvider } from '@/trpc/react';
 import { Inter } from 'next/font/google';
 import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next';
 import { type PropsWithChildren } from 'react';
-import { Toaster } from '@repo/ui/components/ui/toaster';
+import { Toaster } from '@skohr/ui/components/ui/toaster';
 
 const fontSans = Inter({
   subsets: ['latin'],

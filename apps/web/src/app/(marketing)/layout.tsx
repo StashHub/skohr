@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { buttonVariants } from '@repo/ui/components/ui/button';
-import { MainNav } from '@repo/ui/components/main-nav';
+import { buttonVariants } from '@skohr/ui/components/ui/button';
+import { MainNav } from '@skohr/ui/components/main-nav';
 import { marketing } from '@/config/marketing'
 import { type PropsWithChildren } from 'react';
-import { Icons } from '@repo/ui/components/ui/icons';
+import { Icons } from '@skohr/ui/components/ui/icons';
 import { cn } from '@repo/utils/cn';
 
 export default function Layout({ children }: PropsWithChildren) {

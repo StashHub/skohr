@@ -1,13 +1,13 @@
-import Announcement from '@repo/ui/components/announcement';
-import { ContainerScroll } from '@repo/ui/components/container-scroll';
+import Announcement from '@skohr/ui/components/announcement';
+import { ContainerScroll } from '@skohr/ui/components/container-scroll';
 import {
   Actions,
   Header,
   Description,
   Heading,
-} from '@repo/ui/components/page-header';
-import { buttonVariants } from '@repo/ui/components/ui/button';
-import { Icons } from '@repo/ui/components/ui/icons';
+} from '@skohr/ui/components/page-header';
+import { buttonVariants } from '@skohr/ui/components/ui/button';
+import { Icons } from '@skohr/ui/components/ui/icons';
 import { cn } from '@repo/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';

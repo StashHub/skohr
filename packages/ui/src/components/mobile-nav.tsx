@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { type NavItem } from '@repo/types';
 import { cn } from '@repo/utils/cn';
 import { useLockBody } from '@ui/hooks/use-lock-body';
-import { Icons } from '@repo/ui/components/ui/icons';
+import { Icons } from '@skohr/ui/components/ui/icons';
 
 type MobileNavProps = React.PropsWithChildren & {
   items: NavItem[];
