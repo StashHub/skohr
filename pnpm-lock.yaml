@@ -243,6 +243,9 @@ importers:
       '@skohr/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
+      '@types/eslint':
+        specifier: ^8.56.5
+        version: 8.56.5
       '@types/uuid':
         specifier: ^9.0.8
         version: 9.0.8

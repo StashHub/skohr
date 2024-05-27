@@ -23,9 +23,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@skohr/db": "workspace:*",
     "@skohr/eslint-config": "workspace:*",
     "@skohr/tsconfig": "workspace:*",
+    "@types/eslint": "^8.56.5",
     "@types/uuid": "^9.0.8",
     "eslint": "^8.57.0",
     "typescript": "^5.3.3"

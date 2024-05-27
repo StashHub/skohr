@@ -19,5 +19,18 @@
     "clean": {
       "cache": false
     }
-  }
+  },
+  "globalEnv": [
+    "DATABASE_URL",
+    "NEXTAUTH_SECRET",
+    "NEXTAUTH_URL",
+    "VERCEL",
+    "VERCEL_URL",
+    "GOOGLE_CLIENT_ID",
+    "GOOGLE_CLIENT_SECRET",
+    "SKIP_ENV_VALIDATION",
+    "RESEND_FROM",
+    "RESEND_AUDIENCE_ID",
+    "NODE_ENV"
+  ]
 }
