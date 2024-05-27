@@ -6,8 +6,6 @@ const project = resolve(process.cwd(), 'tsconfig.json');
 const config = {
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:@typescript-eslint/stylistic-type-checked',
     'prettier',
     require.resolve('@vercel/style-guide/eslint/next'),
     'eslint-config-turbo',
@@ -20,7 +18,7 @@ const config = {
     node: true,
     browser: true,
   },
-  plugins: ['only-warn', '@typescript-eslint'],
+  plugins: ['only-warn'],
   settings: {
     'import/resolver': {
       typescript: {
