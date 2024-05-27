@@ -9,6 +9,7 @@
     "generate:component": "turbo gen react-component"
   },
   "dependencies": {
+    "@skohr/lib": "workspace:*",
     "@hookform/resolvers": "^3.4.2",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-navigation-menu": "^1.1.4",
@@ -27,7 +28,6 @@
   "devDependencies": {
     "@skohr/eslint-config": "workspace:*",
     "@skohr/tsconfig": "workspace:*",
-    "@repo/utils": "workspace:*",
     "@repo/types": "workspace:*",
     "@turbo/gen": "^1.12.4",
     "@types/eslint": "^8.56.5",

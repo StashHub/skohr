@@ -5,7 +5,6 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import Link from 'next/link';
 
 import { type NavMenuItem } from '@repo/types';
-import { cn } from '@repo/utils/cn';
 import { Icons } from '@ui/components/ui/icons';
 import { MobileNav } from '@ui/components/mobile-nav';
 import { type PropsWithChildren, useState } from 'react';
@@ -19,6 +18,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@skohr/ui/components/ui/navigation-menu';
+import { cn } from '@skohr/lib';
 
 type MainNavProps = PropsWithChildren & {
   items?: NavMenuItem[];

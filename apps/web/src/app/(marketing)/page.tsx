@@ -8,9 +8,9 @@ import {
 } from '@skohr/ui/components/page-header';
 import { buttonVariants } from '@skohr/ui/components/ui/button';
 import { Icons } from '@skohr/ui/components/ui/icons';
-import { cn } from '@repo/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from '@skohr/lib';
 
 export default function Page() {
   return (

@@ -4,7 +4,7 @@ import { MainNav } from '@skohr/ui/components/main-nav';
 import { marketing } from '@/config/marketing'
 import { type PropsWithChildren } from 'react';
 import { Icons } from '@skohr/ui/components/ui/icons';
-import { cn } from '@repo/utils/cn';
+import { cn } from '@skohr/lib';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (

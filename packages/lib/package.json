@@ -1,7 +1,10 @@
 {
-  "name": "@repo/utils",
+  "name": "@skohr/lib",
   "version": "0.0.0",
   "private": true,
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "clean": "rm -rf .turbo node_modules"
@@ -9,13 +12,12 @@
   "devDependencies": {
     "@skohr/eslint-config": "workspace:*",
     "@skohr/tsconfig": "workspace:*",
+    "@types/eslint": "^8.56.5",
+    "eslint": "^8.57.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.3.0"
-  },
-  "exports": {
-    "./*": "./src/*.ts"
   }
 }

@@ -36,49 +36,6 @@ importers:
         specifier: latest
         version: 1.13.3
 
-  apps/docs:
-    dependencies:
-      '@skohr/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      next:
-        specifier: ^14.1.1
-        version: 14.1.1(react-dom@18.2.0)(react@18.2.0)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-    devDependencies:
-      '@next/eslint-plugin-next':
-        specifier: ^14.1.1
-        version: 14.1.1
-      '@skohr/eslint-config':
-        specifier: workspace:*
-        version: link:../../tooling/eslint
-      '@skohr/tsconfig':
-        specifier: workspace:*
-        version: link:../../tooling/typescript
-      '@types/eslint':
-        specifier: ^8.56.5
-        version: 8.56.5
-      '@types/node':
-        specifier: ^20.11.24
-        version: 20.11.24
-      '@types/react':
-        specifier: ^18.2.61
-        version: 18.2.61
-      '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.2.19
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-
   apps/web:
     dependencies:
       '@auth/prisma-adapter':
@@ -93,6 +50,9 @@ importers:
       '@skohr/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@skohr/lib':
+        specifier: workspace:*
+        version: link:../../packages/lib
       '@skohr/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -139,9 +99,6 @@ importers:
       '@repo/types':
         specifier: workspace:*
         version: link:../../packages/types
-      '@repo/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
       '@skohr/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
@@ -287,6 +244,31 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
+  packages/lib:
+    dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      tailwind-merge:
+        specifier: ^2.3.0
+        version: 2.3.0
+    devDependencies:
+      '@skohr/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@skohr/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@types/eslint':
+        specifier: ^8.56.5
+        version: 8.56.5
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.0
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+
   packages/types:
     devDependencies:
       '@skohr/tsconfig':
@@ -313,6 +295,9 @@ importers:
       '@radix-ui/react-toast':
         specifier: ^1.1.5
         version: 1.1.5(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
+      '@skohr/lib':
+        specifier: workspace:*
+        version: link:../lib
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -341,9 +326,6 @@ importers:
       '@repo/types':
         specifier: workspace:*
         version: link:../types
-      '@repo/utils':
-        specifier: workspace:*
-        version: link:../utils
       '@skohr/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
@@ -380,25 +362,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-
-  packages/utils:
-    dependencies:
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      tailwind-merge:
-        specifier: ^2.3.0
-        version: 2.3.0
-    devDependencies:
-      '@skohr/eslint-config':
-        specifier: workspace:*
-        version: link:../../tooling/eslint
-      '@skohr/tsconfig':
-        specifier: workspace:*
-        version: link:../../tooling/typescript
       typescript:
         specifier: ^5.3.3
         version: 5.3.3

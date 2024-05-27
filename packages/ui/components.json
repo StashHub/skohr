@@ -12,6 +12,6 @@
   },
   "aliases": {
     "components": "@ui/components",
-    "utils": "@repo/utils"
+    "utils": "@skohr/lib"
   }
 }
