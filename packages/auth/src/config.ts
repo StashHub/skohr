@@ -6,14 +6,14 @@ import EmailProvider, {
   type SendVerificationRequestParams,
 } from 'next-auth/providers/email';
 
-// import { activation, signin } from '@/lib/constants';
+import { activation, signin } from '@skohr/lib';
 // import Signin from '@/components/emails/signin';
 // import Activation from '@/components/emails/activation';
 
 import { env } from '@/env';
 import { prisma } from '@skohr/db';
 import { v4 as uuid } from 'uuid';
-// import { resend } from '@/lib/resend';
+import { resend } from '@skohr/lib';
 
 /**
  * Augment the `next-auth` module to add custom properties to the session object.
@@ -59,16 +59,16 @@ export const authOptions: NextAuthOptions = {
         //   ? Signin({ path: params.url })
         //   : Activation({ path: params.url });
 
-        // const { data, error } = await resend.emails.send({
-        //   from: params.provider.from,
-        //   to: params.identifier,
-        //   subject: verified ? signin : activation,
-        //   react: template!,
-        //   headers: { 'X-Entity-Ref-ID': uuid() },
-        // });
+        const { data, error } = await resend.emails.send({
+          from: params.provider.from,
+          to: params.identifier,
+          subject: verified ? signin : activation,
+          react: '', // add template
+          headers: { 'X-Entity-Ref-ID': uuid() },
+        });
 
-        // console.log(data?.id);
-        // if (error) throw new Error(error.message);
+        console.log(data?.id);
+        if (error) throw new Error(error.message);
       },
     }),
   ],
@@ -88,29 +88,25 @@ export const authOptions: NextAuthOptions = {
     signIn: async ({ user, isNewUser }) => {
       if (isNewUser) {
         // Retrieve audiences from resend
-        // const { data: audiences, error } = await resend.audiences.list();
-        // if (!audiences || error) {
-        //   console.log('no audiences found', error);
-        //   return;
-        // }
-
-        // // Retrieve audience
-        // const audience = audiences.data.find(
-        //   (audience: { id: string }) => audience.id === env.RESEND_AUDIENCE_ID
-        // );
-
-        // const { data: contact, error: contactError } =
-        //   await resend.contacts.create({
-        //     audienceId: audience!.id,
-        //     email: user.email!,
-        //     unsubscribed: false,
-        //   });
-
-        // if (contactError) {
-        //   console.log('failed to create contact');
-        // }
-
-        // console.log('contact created 🎉', contact?.id);
+        const { data: audiences, error } = await resend.audiences.list();
+        if (!audiences || error) {
+          console.log('no audiences found', error);
+          return;
+        }
+        // Retrieve audience
+        const audience = audiences.data.find(
+          (audience: { id: string }) => audience.id === env.RESEND_AUDIENCE_ID
+        );
+        const { data: contact, error: contactError } =
+          await resend.contacts.create({
+            audienceId: audience!.id,
+            email: user.email!,
+            unsubscribed: false,
+          });
+        if (contactError) {
+          console.log('failed to create contact');
+        }
+        console.log('contact created 🎉', contact?.id);
       }
     },
   },
