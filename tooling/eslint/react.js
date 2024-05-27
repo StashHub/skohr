@@ -1,4 +1,4 @@
-import { resolve } from 'node:path';
+const { resolve } = require('node:path');
 
 const project = resolve(process.cwd(), 'tsconfig.json');
 
@@ -38,4 +38,4 @@ const config = {
   ],
 };
 
-export default config
+module.exports = config;
