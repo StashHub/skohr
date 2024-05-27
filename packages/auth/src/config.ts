@@ -11,7 +11,7 @@ import EmailProvider, {
 // import Activation from '@/components/emails/activation';
 
 import { env } from '@/env';
-import { prisma } from '@skohr/db/prisma';
+import { prisma } from '@skohr/db';
 import { v4 as uuid } from 'uuid';
 // import { resend } from '@/lib/resend';
 

@@ -263,11 +263,14 @@ importers:
         version: 5.14.0(prisma@5.14.0)
     devDependencies:
       '@skohr/eslint-config':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../tooling/eslint
       '@skohr/tsconfig':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../../tooling/typescript
+      '@types/eslint':
+        specifier: ^8.56.5
+        version: 8.56.5
       '@types/node':
         specifier: ^20.11.24
         version: 20.11.24

@@ -2,27 +2,28 @@
   "name": "@skohr/db",
   "version": "0.0.0",
   "exports": {
-    "./*": "./src/client.ts"
+    ".": "./src/client.ts"
   },
   "scripts": {
-    "db:migrate:deploy": "prisma migrate deploy",
-    "db:migrate:dev": "prisma migrate dev",
-    "db:push": "prisma db push --skip-generate",
-    "db:seed": "tsx src/seed.ts",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:dev": "prisma migrate dev",
+    "push": "prisma db push --skip-generate",
+    "seed": "tsx src/seed.ts",
     "format": "prisma format",
-    "generate": "prisma generate",
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint . --max-warnings 0 --no-error-on-unmatched-pattern",
     "prebuild": "pnpm generate",
     "predev": "pnpm generate",
     "studio": "prisma studio",
+    "postinstall": "prisma generate",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2"
   },
   "devDependencies": {
-    "@skohr/eslint-config": "*",
-    "@skohr/tsconfig": "*",
+    "@skohr/eslint-config": "workspace:*",
+    "@skohr/tsconfig": "workspace:*",
+    "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",
     "prisma": "^5.10.2",
