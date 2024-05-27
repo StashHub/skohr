@@ -6,14 +6,14 @@ import EmailProvider, {
   type SendVerificationRequestParams,
 } from 'next-auth/providers/email';
 
-import { activation, signin } from '@skohr/lib';
+import { activation, signin } from '@skohr/lib/constants';
 // import Signin from '@/components/emails/signin';
 // import Activation from '@/components/emails/activation';
 
 import { env } from '@/env';
 import { prisma } from '@skohr/db';
 import { v4 as uuid } from 'uuid';
-import { resend } from '@skohr/lib';
+import { resend } from '@skohr/lib/resend';
 
 /**
  * Augment the `next-auth` module to add custom properties to the session object.
