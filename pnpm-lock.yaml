@@ -252,6 +252,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
       resend:
         specifier: ^3.2.0
         version: 3.2.0
@@ -271,6 +274,9 @@ importers:
       '@types/node':
         specifier: ^20.11.24
         version: 20.11.24
+      '@types/react':
+        specifier: ^18.2.61
+        version: 18.2.61
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -5185,6 +5191,7 @@ packages:
 
   /loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
+    hasBin: true
     dependencies:
       js-tokens: 4.0.0
 
