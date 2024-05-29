@@ -22,7 +22,7 @@
   "devDependencies": {
     "@skohr/eslint-config": "workspace:*",
     "@skohr/tsconfig": "workspace:*",
-    "@repo/types": "workspace:*",
+    "@skohr/types": "workspace:*",
     "eslint": "^8.57.0",
     "typescript": "^5.3.3"
   }

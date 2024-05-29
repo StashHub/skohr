@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import Link from 'next/link';
 
-import { type NavMenuItem } from '@repo/types';
+import { type NavMenuItem } from '@skohr/types';
 import { Icons } from '@ui/components/ui/icons';
 import { MobileNav } from '@ui/components/mobile-nav';
 import { type PropsWithChildren, useState } from 'react';

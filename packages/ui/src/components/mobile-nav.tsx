@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { type NavItem } from '@repo/types';
+import { type NavItem } from '@skohr/types';
 import { useLockBody } from '@skohr/lib/hooks/use-lock-body';
 import { Icons } from '@skohr/ui/components/ui/icons';
 import { cn } from '@skohr/lib';
