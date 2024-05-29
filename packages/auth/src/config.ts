@@ -1,10 +1,10 @@
-import { type DefaultSession, NextAuthConfig } from 'next-auth';
+import { type NextAuthOptions } from 'next-auth';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { type Adapter } from 'next-auth/adapters';
 import GoogleProvider from 'next-auth/providers/google';
 import EmailProvider, {
-  type NodemailerConfig,
-} from 'next-auth/providers/nodemailer';
+  type SendVerificationRequestParams,
+} from 'next-auth/providers/email';
 
 import { activation, signin } from '@skohr/lib/constants';
 // import Signin from '@/components/emails/signin';
@@ -16,27 +16,12 @@ import { v4 as uuid } from 'uuid';
 import { resend } from '@skohr/lib/resend';
 
 /**
- * Augment the `next-auth` module to add custom properties to the session object.
- * This allows us to maintain type safety while extending the session object.
- *
- * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
- */
-declare module 'next-auth' {
-  interface Session extends DefaultSession {
-    user: DefaultSession['user'] & {
-      id: string;
-      // ...other properties
-    };
-  }
-}
-
-/**
  * Configuration options for NextAuth.js.
  * These options are used to set up adapters, providers, callbacks, and more.
  *
  * @see https://next-auth.js.org/configuration/options
  */
-export const authOptions: NextAuthConfig = {
+export const authOptions: NextAuthOptions = {
   debug: process.env.NODE_ENV === 'development',
   adapter: PrismaAdapter(prisma) as Adapter,
   providers: [
@@ -46,11 +31,9 @@ export const authOptions: NextAuthConfig = {
     }),
     EmailProvider({
       from: env.RESEND_FROM,
-      sendVerificationRequest: async (params: {
-        identifier: string;
-        provider: NodemailerConfig;
-        url: string;
-      }) => {
+      sendVerificationRequest: async (
+        params: SendVerificationRequestParams
+      ) => {
         const user = await prisma.user.findUnique({
           where: { email: params.identifier },
           select: { emailVerified: true },

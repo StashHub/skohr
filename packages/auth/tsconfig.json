@@ -6,6 +6,6 @@
       "@/*": ["./src/*"],
     }
   },
-  "include": ["."],
+  "include": [".", "../types/next-auth.d.ts"],
   "exclude": ["node_modules"]
 }
