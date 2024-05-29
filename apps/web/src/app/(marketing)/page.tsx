@@ -71,6 +71,7 @@ export default function Page() {
           alt='hero'
           height={1280}
           width={2048}
+          priority={true}
           className='mx-auto h-full rounded-2xl object-cover object-left-top'
           draggable={false}
         />
