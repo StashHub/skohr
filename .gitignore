@@ -24,9 +24,6 @@ dist
 # debug
 .pnpm-debug.log*
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
 

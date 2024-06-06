@@ -1,22 +1,22 @@
 import { createEnv } from '@t3-oss/env-nextjs';
-import { vercel } from "@t3-oss/env-nextjs/presets";
+import { vercel } from '@t3-oss/env-nextjs/presets';
 import { z } from 'zod';
 
-import { env as authEnv } from "@skohr/auth/env";
+import { env as authEnv } from '@skohr/auth/env';
 
 export const env = createEnv({
   extends: [authEnv, vercel()],
   shared: {
     NODE_ENV: z
-    .enum(['development', 'test', 'production'])
-    .default('development'),
+      .enum(['development', 'test', 'production'])
+      .default('development'),
   },
   /**
    * Specify your server-side environment variables schema here. This way you can ensure the app
    * isn't built with invalid env vars.
    */
   server: {
-    DATABASE_URL: z.string().url()
+    DATABASE_URL: z.string().url(),
   },
 
   /**
@@ -34,7 +34,7 @@ export const env = createEnv({
    */
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
-    NODE_ENV: process.env.NODE_ENV
+    NODE_ENV: process.env.NODE_ENV,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
