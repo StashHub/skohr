@@ -19,7 +19,7 @@ export const createTRPCContext = async (opts: {
   const session = opts.session;
   const source = opts.headers.get('x-trpc-source') ?? 'unknown';
 
-  console.log('tRPC request: ', source, 'by', session?.user);
+  console.log('tRPC request:', source, 'by', session?.user);
 
   return { session, prisma };
 };

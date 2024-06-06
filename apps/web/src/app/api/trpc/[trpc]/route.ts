@@ -25,12 +25,16 @@ export const OPTIONS = () => {
   return response;
 };
 
+type NextRequestWithAuth = NextRequest & {
+  auth: ReturnType<typeof auth>;
+};
+
 /**
  * Handles incoming HTTP requests, processing them using tRPC API.
  * @param req - Next.js request object
  * @returns Promise resolving to tRPC API response
  */
-const handler = auth(async (req: any) => {
+const handler = auth(async (req: NextRequestWithAuth) => {
   const response = await fetchRequestHandler({
     endpoint: '/api/trpc',
     req,

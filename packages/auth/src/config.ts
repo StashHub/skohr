@@ -1,10 +1,8 @@
-import { type NextAuthOptions } from 'next-auth';
+import { type NextAuthConfig } from 'next-auth';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { type Adapter } from 'next-auth/adapters';
 import GoogleProvider from 'next-auth/providers/google';
-import EmailProvider, {
-  type SendVerificationRequestParams,
-} from 'next-auth/providers/email';
+import EmailProvider from 'next-auth/providers/nodemailer';
 
 import { activation, signin } from '@skohr/lib/constants';
 // import Signin from '@/components/emails/signin';
@@ -21,7 +19,7 @@ import { resend } from '@skohr/lib/resend';
  *
  * @see https://next-auth.js.org/configuration/options
  */
-export const authOptions: NextAuthOptions = {
+export const authOptions: NextAuthConfig = {
   debug: process.env.NODE_ENV === 'development',
   adapter: PrismaAdapter(prisma) as Adapter,
   providers: [
@@ -31,9 +29,11 @@ export const authOptions: NextAuthOptions = {
     }),
     EmailProvider({
       from: env.RESEND_FROM,
-      sendVerificationRequest: async (
-        params: SendVerificationRequestParams
-      ) => {
+      sendVerificationRequest: async (params: {
+        identifier: string;
+        url: string;
+        provider: { from: string };
+      }) => {
         const user = await prisma.user.findUnique({
           where: { email: params.identifier },
           select: { emailVerified: true },

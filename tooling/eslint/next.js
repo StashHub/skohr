@@ -8,6 +8,8 @@ const config = {
     'eslint:recommended',
     'prettier',
     require.resolve('@vercel/style-guide/eslint/next'),
+    'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
     'eslint-config-turbo',
   ],
   globals: {
@@ -18,7 +20,7 @@ const config = {
     node: true,
     browser: true,
   },
-  plugins: ['only-warn'],
+  plugins: ['only-warn', '@typescript-eslint'],
   settings: {
     'import/resolver': {
       typescript: {
