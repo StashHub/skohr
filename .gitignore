@@ -19,7 +19,7 @@ dist
 # dotenv
 .env.*.local
 .env
-!packages/database/.env
+!packages/db/.env
 
 # debug
 .pnpm-debug.log*

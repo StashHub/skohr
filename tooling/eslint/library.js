@@ -21,7 +21,7 @@ const config = {
     },
   },
   // ignore dot files
-  ignorePatterns: ['.*.js', 'node_modules/', 'dist/'],
+  ignorePatterns: ['.*.js', '.*.cjs', 'node_modules/', 'dist/'],
   overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
 };
 
