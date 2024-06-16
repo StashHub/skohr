@@ -8,7 +8,7 @@ import { activation, signin } from '@skohr/lib/constants';
 // import Signin from '@/components/emails/signin';
 // import Activation from '@/components/emails/activation';
 
-import { env } from '@/env';
+import { env } from '../env';
 import { prisma } from '@skohr/db';
 import { v4 as uuid } from 'uuid';
 import { resend } from '@skohr/lib/resend';
@@ -22,6 +22,7 @@ import { resend } from '@skohr/lib/resend';
 export const authOptions: NextAuthConfig = {
   debug: process.env.NODE_ENV === 'development',
   adapter: PrismaAdapter(prisma) as Adapter,
+  secret: env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,

@@ -1,5 +1,4 @@
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
-import { type NextRequest } from 'next/server';
 import { appRouter, createTRPCContext } from '@skohr/api';
 import { auth } from '@skohr/auth';
 import { env } from '@/env';
@@ -25,16 +24,12 @@ export const OPTIONS = () => {
   return response;
 };
 
-type NextRequestWithAuth = NextRequest & {
-  auth: ReturnType<typeof auth>;
-};
-
 /**
  * Handles incoming HTTP requests, processing them using tRPC API.
  * @param req - Next.js request object
  * @returns Promise resolving to tRPC API response
  */
-const handler = auth(async (req: NextRequestWithAuth) => {
+const handler = auth(async (req) => {
   const response = await fetchRequestHandler({
     endpoint: '/api/trpc',
     req,

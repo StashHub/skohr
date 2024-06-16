@@ -1,4 +1,4 @@
-import NextAuth, { Session } from 'next-auth';
+import NextAuth from 'next-auth';
 import { authOptions } from './config';
 
 export type { Session } from 'next-auth';
