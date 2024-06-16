@@ -1,5 +1,5 @@
 {
-  "extends": "@skohr/tsconfig/base.json",
+  "extends": "@skohr/tsconfig/nextjs.json",
   "include": [".", "../types/next-auth.d.ts"],
   "exclude": ["node_modules"]
 }
