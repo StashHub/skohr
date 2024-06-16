@@ -7,7 +7,7 @@
     ".": {
       "default": "./src/index.ts"
     },
-    "./env": "./src/env.js"
+    "./env": "./env.js"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
