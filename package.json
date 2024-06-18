@@ -12,6 +12,8 @@
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
     "test": "turbo test",
+    "test:watch": "turbo test:watch",
+    "test:coverage": "turbo test:coverage",
     "prepare": "husky",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "ui:add": "pnpm -F ui ui:add"
@@ -30,12 +32,14 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@skohr/eslint-config": "workspace:*",
     "@skohr/tsconfig": "workspace:*",
+    "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.4",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "turbo": "^2.0.0"
+    "turbo": "^2.0.0",
+    "vitest": "^1.6.0"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {

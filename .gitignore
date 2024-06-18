@@ -8,7 +8,7 @@ node_modules
 db.sqlite*
 
 # testing
-/coverage
+coverage
 
 # build outputs
 .next/

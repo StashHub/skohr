@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "clean": "rm -rf .next && rm -rf node_modules"
@@ -14,8 +17,8 @@
     "@skohr/api": "workspace:*",
     "@skohr/auth": "workspace:*",
     "@skohr/db": "workspace:*",
-    "@skohr/ui": "workspace:*",
     "@skohr/lib": "workspace:*",
+    "@skohr/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "^5.35.5",
     "@trpc/client": "11.0.0-rc.364",
