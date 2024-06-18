@@ -6,7 +6,7 @@
     "add": "pnpm dlx shadcn-ui@latest add",
     "lint": "eslint . --max-warnings 0",
     "test": "vitest",
-    "test:coverage": "vitest --coverage",
+    "test:coverage": "vitest run --coverage",
     "clean": "rm -rf .turbo node_modules",
     "generate:component": "turbo gen react-component"
   },
