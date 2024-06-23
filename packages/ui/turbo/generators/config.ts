@@ -9,7 +9,6 @@ interface PackageJson {
 }
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
-  //
   plop.setGenerator('init', {
     description: 'Generate a new package for the Skohr monorepo',
     prompts: [
@@ -85,7 +84,6 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
   });
-  // Add a new component to the internal UI library
   plop.setGenerator('component', {
     description: 'Generate a new react component',
     prompts: [
