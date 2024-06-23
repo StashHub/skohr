@@ -1,0 +1,20 @@
+{
+  "name": "@skohr/{{ name }}",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "clean": "rm -rf .turbo node_modules"
+  },
+  "devDependencies": {
+    "@skohr/eslint-config": "workspace:*",
+    "@skohr/tsconfig": "workspace:*",
+    "@skohr/types": "workspace:*",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  }
+}
