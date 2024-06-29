@@ -5,8 +5,8 @@ import GoogleProvider from 'next-auth/providers/google';
 import EmailProvider from 'next-auth/providers/nodemailer';
 
 import { activation, signin } from '@skohr/lib/constants';
-// import Signin from '@/components/emails/signin';
-// import Activation from '@/components/emails/activation';
+import Signin from '@skohr/transactional/emails/signin';
+import Activation from '@skohr/transactional/emails/activation';
 
 import { env } from '../env';
 import { prisma } from '@skohr/db';
@@ -41,15 +41,15 @@ export const authOptions: NextAuthConfig = {
         });
 
         const verified = user?.emailVerified;
-        // const template = verified
-        //   ? Signin({ path: params.url })
-        //   : Activation({ path: params.url });
+        const template = verified
+          ? Signin({ path: params.url })
+          : Activation({ path: params.url });
 
         const { data, error } = await resend.emails.send({
           from: params.provider.from,
           to: params.identifier,
           subject: verified ? signin : activation,
-          react: '', // add template
+          react: template!,
           headers: { 'X-Entity-Ref-ID': uuid() },
         });
 

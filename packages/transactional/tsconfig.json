@@ -1,0 +1,5 @@
+{
+  "extends": "@skohr/tsconfig/nextjs.json",
+  "include": ["."],
+  "exclude": ["node_modules"]
+}
