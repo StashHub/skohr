@@ -5,8 +5,8 @@ export default defineConfig({
   test: {
     exclude: [...configDefaults.exclude],
     coverage: {
-      provider: 'v8'
+      provider: 'v8',
     },
-    passWithNoTests: true
+    passWithNoTests: true,
   },
 });
