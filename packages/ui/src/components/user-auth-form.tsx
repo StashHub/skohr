@@ -41,7 +41,7 @@ export function UserAuthForm({ sso, className, ...props }: UserAuthFormProps) {
   async function onSubmit(data: FormData): Promise<void> {
     setIsLoading(true);
 
-    const response = await signIn('email', {
+    const response = await signIn('nodemailer', {
       email: data.email.toLowerCase(),
       redirect: false,
       callbackUrl: callbackUrl,
