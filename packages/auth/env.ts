@@ -9,8 +9,8 @@ export const env = createEnv({
   server: {
     NEXTAUTH_SECRET:
       process.env.NODE_ENV === 'production'
-        ? z.string()
-        : z.string().optional(),
+        ? z.string().min(1)
+        : z.string().min(1).optional(),
     NEXTAUTH_URL: z.preprocess(
       // This makes Vercel deployments not fail if you don't set NEXTAUTH_URL
       // Since NextAuth.js automatically uses the VERCEL_URL if present.
@@ -36,7 +36,7 @@ export const env = createEnv({
    * You can't destruct `process.env` as a regular object in the Next.js edge runtime (e.g.
    * middlewares) or client-side so we need to destruct manually.
    */
-  runtimeEnv: {
+  experimental__runtimeEnv: {
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
