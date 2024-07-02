@@ -7,13 +7,14 @@
   "scripts": {
     "migrate:deploy": "prisma migrate deploy",
     "migrate:dev": "prisma migrate dev",
-    "push": "prisma db push",
+    "push": "pnpm with-env prisma db push",
     "seed": "tsx src/seed.ts",
     "format": "prisma format",
     "lint": "eslint . --max-warnings 0",
-    "studio": "prisma studio",
+    "studio": "pnpm with-env prisma studio",
     "clean": "rm -rf .turbo node_modules",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "with-env": "dotenv -e ./.env --"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2"
@@ -23,6 +24,7 @@
     "@skohr/tsconfig": "workspace:*",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
+    "dotenv-cli": "^7.4.2",
     "eslint": "^8.57.0",
     "prisma": "^5.10.2",
     "tsx": "^4.11.0",

@@ -1,3 +1,2 @@
-export { GET, POST } from '@skohr/auth';
-
-export const runtime = 'edge';
+import { handlers } from '@skohr/auth';
+export const { GET, POST } = handlers;

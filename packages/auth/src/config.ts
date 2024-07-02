@@ -1,8 +1,8 @@
 import { type NextAuthConfig } from 'next-auth';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { type Adapter } from 'next-auth/adapters';
-import GoogleProvider from 'next-auth/providers/google';
-import EmailProvider from 'next-auth/providers/nodemailer';
+import Google from 'next-auth/providers/google';
+import Email from 'next-auth/providers/nodemailer';
 
 import { activation, signin } from '@skohr/lib/constants';
 import Signin from '@skohr/transactional/emails/signin';
@@ -22,14 +22,22 @@ import { resend } from '@skohr/lib/resend';
 export const authOptions: NextAuthConfig = {
   debug: process.env.NODE_ENV === 'development',
   adapter: PrismaAdapter(prisma) as Adapter,
-  secret: env.NEXTAUTH_SECRET,
+  secret: env.AUTH_SECRET,
   providers: [
-    GoogleProvider({
-      clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET,
+    Google({
+      clientId: env.AUTH_GOOGLE_ID,
+      clientSecret: env.AUTH_GOOGLE_SECRET,
     }),
-    EmailProvider({
+    Email({
       from: env.RESEND_FROM,
+      server: {
+        host: env.EMAIL_SERVER_HOST,
+        port: env.EMAIL_SERVER_PORT,
+        auth: {
+          user: env.EMAIL_SERVER_USER,
+          pass: env.EMAIL_SERVER_PASSWORD,
+        },
+      },
       sendVerificationRequest: async (params: {
         identifier: string;
         url: string;

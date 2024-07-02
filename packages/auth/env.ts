@@ -7,22 +7,27 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    NEXTAUTH_SECRET:
+    AUTH_SECRET:
       process.env.NODE_ENV === 'production'
         ? z.string().min(1)
         : z.string().min(1).optional(),
-    NEXTAUTH_URL: z.preprocess(
-      // This makes Vercel deployments not fail if you don't set NEXTAUTH_URL
+    AUTH_URL: z.preprocess(
+      // This makes Vercel deployments not fail if you don't set AUTH_URL
       // Since NextAuth.js automatically uses the VERCEL_URL if present.
       (str) => process.env.VERCEL_URL ?? str,
       // VERCEL_URL doesn't include `https` so it cant be validated as a URL
       process.env.VERCEL ? z.string() : z.string().url()
     ),
-    GOOGLE_CLIENT_ID: z.string(),
-    GOOGLE_CLIENT_SECRET: z.string(),
+    AUTH_GOOGLE_ID: z.string(),
+    AUTH_GOOGLE_SECRET: z.string(),
     RESEND_FROM: z.string(),
     RESEND_API_KEY: z.string(),
     RESEND_AUDIENCE_ID: z.string(),
+
+    EMAIL_SERVER_HOST: z.string(),
+    EMAIL_SERVER_PORT: z.string(),
+    EMAIL_SERVER_USER: z.string(),
+    EMAIL_SERVER_PASSWORD: z.string(),
   },
 
   /**
@@ -36,14 +41,19 @@ export const env = createEnv({
    * You can't destruct `process.env` as a regular object in the Next.js edge runtime (e.g.
    * middlewares) or client-side so we need to destruct manually.
    */
-  experimental__runtimeEnv: {
-    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
-    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  runtimeEnv: {
+    AUTH_SECRET: process.env.AUTH_SECRET,
+    AUTH_URL: process.env.AUTH_URL,
+    AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
+    AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
     RESEND_FROM: process.env.RESEND_FROM,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID,
+
+    EMAIL_SERVER_HOST: process.env.EMAIL_SERVER_HOST,
+    EMAIL_SERVER_PORT: process.env.EMAIL_SERVER_PORT,
+    EMAIL_SERVER_USER: process.env.EMAIL_SERVER_USER,
+    EMAIL_SERVER_PASSWORD: process.env.EMAIL_SERVER_PASSWORD,
   },
 
   /**

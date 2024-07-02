@@ -3,8 +3,6 @@ import { appRouter, createTRPCContext } from '@skohr/api';
 import { auth } from '@skohr/auth';
 import { env } from '@/env';
 
-export const runtime = 'edge';
-
 /**
  * Configure basic CORS headers
  * You should extend to match our needs
