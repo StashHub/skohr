@@ -1,5 +1,5 @@
 {
-  "name": "@skohr/transactional",
+  "name": "@skohr/transact",
   "version": "0.0.0",
   "private": true,
   "workspaces": [

@@ -5,8 +5,8 @@ import Google from 'next-auth/providers/google';
 import Email from 'next-auth/providers/nodemailer';
 
 import { activation, signin } from '@skohr/lib/constants';
-import Signin from '@skohr/transactional/emails/signin';
-import Activation from '@skohr/transactional/emails/activation';
+import Signin from '@skohr/transact/emails/signin';
+import Activation from '@skohr/transact/emails/activation';
 
 import { env } from '../env';
 import { prisma } from '@skohr/db';

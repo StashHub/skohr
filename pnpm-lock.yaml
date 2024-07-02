@@ -196,9 +196,9 @@ importers:
       '@skohr/lib':
         specifier: workspace:*
         version: link:../lib
-      '@skohr/transactional':
+      '@skohr/transact':
         specifier: workspace:*
-        version: link:../transactional
+        version: link:../emails
       '@t3-oss/env-nextjs':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.3.3)(zod@3.23.8)
@@ -274,6 +274,21 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
+  packages/emails:
+    dependencies:
+      '@react-email/components':
+        specifier: ^0.0.19
+        version: 0.0.19(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-email:
+        specifier: ^2.1.4
+        version: 2.1.4(eslint@8.57.0)
+
   packages/lib:
     dependencies:
       clsx:
@@ -310,21 +325,6 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
-
-  packages/transactional:
-    dependencies:
-      '@react-email/components':
-        specifier: ^0.0.19
-        version: 0.0.19(react@18.2.0)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-email:
-        specifier: ^2.1.4
-        version: 2.1.4(eslint@8.57.0)
 
   packages/types:
     dependencies:
@@ -7506,6 +7506,7 @@ packages:
   /jiti@1.21.0:
     resolution: {integrity: sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==}
     hasBin: true
+    dev: true
 
   /jiti@1.21.6:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
@@ -9867,7 +9868,7 @@ packages:
       fast-glob: 3.3.1
       glob-parent: 6.0.2
       is-glob: 4.0.3
-      jiti: 1.21.0
+      jiti: 1.21.6
       lilconfig: 2.1.0
       micromatch: 4.0.6
       normalize-path: 3.0.0
