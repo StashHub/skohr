@@ -7,6 +7,7 @@
     ".": {
       "default": "./src/index.ts"
     },
+    "./actions": "./src/actions.ts",
     "./env": "./env.ts"
   },
   "scripts": {

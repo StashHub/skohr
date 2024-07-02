@@ -29,15 +29,8 @@ export const authOptions: NextAuthConfig = {
       clientSecret: env.AUTH_GOOGLE_SECRET,
     }),
     Email({
-      from: env.RESEND_FROM,
-      server: {
-        host: env.EMAIL_SERVER_HOST,
-        port: env.EMAIL_SERVER_PORT,
-        auth: {
-          user: env.EMAIL_SERVER_USER,
-          pass: env.EMAIL_SERVER_PASSWORD,
-        },
-      },
+      server: env.EMAIL_SERVER,
+      from: env.EMAIL_FROM,
       sendVerificationRequest: async (params: {
         identifier: string;
         url: string;

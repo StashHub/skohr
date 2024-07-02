@@ -37,9 +37,10 @@
     "AUTH_URL",
     "AUTH_GOOGLE_ID",
     "AUTH_GOOGLE_SECRET",
-    "RESEND_FROM",
-    "RESEND_API_KEY",
     "RESEND_AUDIENCE_ID",
+    "AUTH_RESEND_KEY",
+    "EMAIL_SERVER",
+    "EMAIL_FROM",
     "PORT"
   ],
   "globalPassThroughEnv": [

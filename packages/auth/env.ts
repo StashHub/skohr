@@ -20,14 +20,10 @@ export const env = createEnv({
     ),
     AUTH_GOOGLE_ID: z.string(),
     AUTH_GOOGLE_SECRET: z.string(),
-    RESEND_FROM: z.string(),
-    RESEND_API_KEY: z.string(),
+    AUTH_RESEND_KEY: z.string(),
     RESEND_AUDIENCE_ID: z.string(),
-
-    EMAIL_SERVER_HOST: z.string(),
-    EMAIL_SERVER_PORT: z.string(),
-    EMAIL_SERVER_USER: z.string(),
-    EMAIL_SERVER_PASSWORD: z.string(),
+    EMAIL_SERVER: z.string(),
+    EMAIL_FROM: z.string(),
   },
 
   /**
@@ -46,14 +42,10 @@ export const env = createEnv({
     AUTH_URL: process.env.AUTH_URL,
     AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
     AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
-    RESEND_FROM: process.env.RESEND_FROM,
-    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    AUTH_RESEND_KEY: process.env.AUTH_RESEND_KEY,
     RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID,
-
-    EMAIL_SERVER_HOST: process.env.EMAIL_SERVER_HOST,
-    EMAIL_SERVER_PORT: process.env.EMAIL_SERVER_PORT,
-    EMAIL_SERVER_USER: process.env.EMAIL_SERVER_USER,
-    EMAIL_SERVER_PASSWORD: process.env.EMAIL_SERVER_PASSWORD,
+    EMAIL_SERVER: process.env.EMAIL_SERVER,
+    EMAIL_FROM: process.env.EMAIL_FROM,
   },
 
   /**

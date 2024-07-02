@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { signIn } from '@skohr/auth';
+import { signin, google } from '@skohr/auth/actions';
 
 import { Icons } from '@ui/components/ui/icons';
 import { Button } from '@ui/components/ui/button';
@@ -41,26 +41,21 @@ export function UserAuthForm({ sso, className, ...props }: UserAuthFormProps) {
   async function onSubmit(data: FormData): Promise<void> {
     setIsLoading(true);
 
-    // const response = await signIn('nodemailer', {
-    //   email: data.email.toLowerCase(),
-    //   redirect: false,
-    //   callbackUrl: callbackUrl,
-    // });
+    const response = await signin(data.email, callbackUrl);
+    setIsLoading(false);
 
-    // setIsLoading(false);
+    if (!response?.ok) {
+      toast({
+        title: 'Something went wrong.',
+        description: 'Your sign in request failed. Please try again.',
+        variant: 'destructive',
+      });
+    }
 
-    // if (!response?.ok) {
-    //   toast({
-    //     title: 'Something went wrong.',
-    //     description: 'Your sign in request failed. Please try again.',
-    //     variant: 'destructive',
-    //   });
-    // }
-
-    // toast({
-    //   title: 'Check your email',
-    //   description: 'We sent you a login link. Be sure to check your spam too.',
-    // });
+    toast({
+      title: 'Check your email',
+      description: 'We sent you a login link. Be sure to check your spam too.',
+    });
   }
 
   return (
@@ -111,7 +106,7 @@ export function UserAuthForm({ sso, className, ...props }: UserAuthFormProps) {
         type='button'
         onClick={() => {
           setIsOauthLoading(true);
-          signIn('google', { callbackUrl })
+          google(callbackUrl)
             .then(() => {
               setIsOauthLoading(false);
             })
