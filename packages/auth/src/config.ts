@@ -3,6 +3,7 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import { type Adapter } from 'next-auth/adapters';
 import Google from 'next-auth/providers/google';
 import Email from 'next-auth/providers/nodemailer';
+import { NextResponse } from 'next/server';
 
 import { activation, signin } from '@skohr/lib/constants';
 import Signin from '@skohr/transact/emails/signin';
@@ -67,6 +68,18 @@ export const authOptions: NextAuthConfig = {
         id: user.id,
       },
     }),
+    authorized: async ({ request, auth }) => {
+      if (request.method == 'POST') {
+        const { authToken } = (await request.json()) ?? {};
+        // If the request has a valid auth token, it is authorized
+        // TODO: validate auth token
+        // const valid = await validateAuthToken(authToken)
+        if (authToken) return true;
+        return NextResponse.json('Invalid auth token', { status: 401 });
+      }
+      // Authenticated, otherwise redirect to signin page
+      return !!auth?.user;
+    },
   },
   pages: {
     signIn: '/signin',

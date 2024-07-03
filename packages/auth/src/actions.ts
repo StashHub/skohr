@@ -1,16 +1,19 @@
 'use server';
 
-import { signIn } from '@skohr/auth';
+import { signIn, signOut } from '@skohr/auth';
 
 export async function signin(email: string, callbackUrl: string) {
-  const response = await signIn('nodemailer', {
+  return await signIn('nodemailer', {
     email: email.toLowerCase(),
     redirect: false,
-    callbackUrl: callbackUrl,
+    redirectTo: callbackUrl,
   });
-  return response;
 }
 
 export async function google(callbackUrl: string) {
   return await signIn('google', { callbackUrl });
+}
+
+export async function logout() {
+  return await signOut({ redirectTo: '/signin' });
 }
