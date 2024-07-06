@@ -5,6 +5,7 @@
   "scripts": {
     "build": "turbo build",
     "db:migrate:deploy": "pnpm -F db migrate:deploy",
+    "db:up": "pnpm -F db db:up",
     "db:push": "pnpm -F db push",
     "db:studio": "pnpm -F db studio",
     "dev": "turbo dev --parallel",
@@ -25,6 +26,9 @@
     ],
     "*.json": [
       "prettier --write"
+    ],
+    "packages/db/prisma/schema.prisma": [
+      "prisma format"
     ]
   },
   "devDependencies": {

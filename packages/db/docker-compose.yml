@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: db
+    hostname: db
+    restart: always
+    volumes:
+      - postgresdb:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: skohr
+      POSTGRES_PASSWORD: ''
+      POSTGRES_HOST_AUTH_METHOD: trust
+    logging:
+      options:
+        max-size: 10m
+        max-file: '3'
+    ports:
+      - 5450:5432
+volumes:
+  postgresdb:
