@@ -29,6 +29,34 @@
     },
     "clean": {
       "cache": false
+    },
+    "@skohr/db#seed": {
+      "cache": false,
+      "dependsOn": ["@skohr/db#migrate:dev"]
+    },
+    "@skohr/db#push": {
+      "cache": false,
+      "dependsOn": ["@skohr/db#db:up"]
+    },
+    "@skohr/db#studio": {
+      "cache": false
+    },
+    "@skohr/db#migrate:dev": {
+      "cache": false,
+      "dependsOn": ["@skohr/db#db:up"]
+    },
+    "@skohr/db#migrate:deploy": {
+      "cache": false,
+      "dependsOn": ["@skohr/db#db:up"]
+    },
+    "@skohr/db#db:up": {
+      "cache": false
+    },
+    "@skohr/db#db:down": {
+      "cache": false
+    },
+    "@skohr/ui#add": {
+      "cache": false
     }
   },
   "globalEnv": [

@@ -5,12 +5,14 @@
     ".": "./src/client.ts"
   },
   "scripts": {
-    "db:up": "docker compose up -d || docker-compose up -d",
-    "db:down": "docker compose down --volumes --remove-orphans || docker-compose down --volumes --remove-orphans",
     "migrate:deploy": "prisma migrate deploy",
     "migrate:dev": "prisma migrate dev",
+    "db:up": "docker compose up -d || docker-compose up -d",
+    "db:down": "docker compose down --volumes --remove-orphans || docker-compose down --volumes --remove-orphans",
+    "db:setup": "run-s db:up migrate:dev seed",
+    "db:reset": "run-s db:down db:setup",
     "push": "pnpm with-env prisma db push",
-    "seed": "tsx src/seed.ts",
+    "seed": "prisma db seed",
     "format": "prisma format",
     "lint": "eslint . --max-warnings 0",
     "studio": "pnpm with-env prisma studio",
@@ -30,8 +32,12 @@
     "@types/node": "^20.14.10",
     "dotenv-cli": "^7.4.2",
     "eslint": "^8.57.0",
+    "npm-run-all": "^4.1.5",
     "prisma": "^5.16.1",
     "tsx": "^4.16.2",
     "typescript": "^5.5.3"
+  },
+  "prisma": {
+    "seed": "tsx ./src/seed.ts"
   }
 }

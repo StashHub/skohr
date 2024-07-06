@@ -4,10 +4,13 @@
   "type": "module",
   "scripts": {
     "build": "turbo build",
-    "db:migrate:deploy": "pnpm -F db migrate:deploy",
-    "db:up": "pnpm -F db db:up",
-    "db:push": "pnpm -F db push",
-    "db:studio": "pnpm -F db studio",
+    "db:migrate:dev": "turbo migrate:dev",
+    "db:migrate:deploy": "turbo migrate:deploy",
+    "db:up": "turbo db:up",
+    "db:down": "turbo db:down",
+    "db:push": "turbo push",
+    "db:seed": "turbo seed",
+    "db:studio": "turbo studio",
     "dev": "turbo dev --parallel",
     "clean": "turbo clean",
     "lint": "turbo lint",
@@ -17,7 +20,7 @@
     "test:coverage": "turbo test:coverage",
     "prepare": "husky",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "ui:add": "pnpm -F ui ui:add"
+    "ui:add": "turbo add"
   },
   "lint-staged": {
     "(apps|packages)/**/*.{js,ts,jsx,tsx}": [
