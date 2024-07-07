@@ -1,5 +1,4 @@
-import { Prisma, PrismaClient } from '@prisma/client/edge';
-import { withAccelerate } from '@prisma/extension-accelerate';
+import { Prisma, PrismaClient } from '@prisma/client';
 
 /**
  * Create a new Prisma client instance with logging enabled
@@ -65,5 +64,4 @@ export const prisma = db
         },
       },
     },
-  })
-  .$extends(withAccelerate());
+  });
