@@ -3,13 +3,14 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import { type Adapter } from 'next-auth/adapters';
 import Google from 'next-auth/providers/google';
 import Email from 'next-auth/providers/nodemailer';
+import Resend from 'next-auth/providers/resend';
 import { NextResponse } from 'next/server';
 
 import { activation, signin } from '@skohr/lib/constants';
 import Signin from '@skohr/transact/emails/signin';
 import Activation from '@skohr/transact/emails/activation';
 
-import { env } from '../env';
+import { env } from '../../env';
 import { prisma } from '@skohr/db';
 import { v4 as uuid } from 'uuid';
 import { resend } from '@skohr/lib/resend';
@@ -20,7 +21,7 @@ import { resend } from '@skohr/lib/resend';
  *
  * @see https://next-auth.js.org/configuration/options
  */
-export const authOptions: NextAuthConfig = {
+export const authConfig: NextAuthConfig = {
   debug: process.env.NODE_ENV === 'development',
   adapter: PrismaAdapter(prisma) as Adapter,
   secret: env.AUTH_SECRET,
@@ -29,36 +30,40 @@ export const authOptions: NextAuthConfig = {
       clientId: env.AUTH_GOOGLE_ID,
       clientSecret: env.AUTH_GOOGLE_SECRET,
     }),
-    Email({
-      server: env.EMAIL_SERVER,
+    Resend({
+      apiKey: env.AUTH_RESEND_KEY,
       from: env.EMAIL_FROM,
-      sendVerificationRequest: async (params: {
-        identifier: string;
-        url: string;
-        provider: { from: string };
-      }) => {
-        const user = await prisma.user.findUnique({
-          where: { email: params.identifier },
-          select: { emailVerified: true },
-        });
-
-        const verified = user?.emailVerified;
-        const template = verified
-          ? Signin({ path: params.url })
-          : Activation({ path: params.url });
-
-        const { data, error } = await resend.emails.send({
-          from: params.provider.from,
-          to: params.identifier,
-          subject: verified ? signin : activation,
-          react: template!,
-          headers: { 'X-Entity-Ref-ID': uuid() },
-        });
-
-        console.log(data?.id);
-        if (error) throw new Error(error.message);
-      },
     }),
+    // Email({
+    //   server: env.EMAIL_SERVER,
+    //   from: env.EMAIL_FROM,
+    //   sendVerificationRequest: async (params: {
+    //     identifier: string;
+    //     url: string;
+    //     provider: { from: string };
+    //   }) => {
+    //     const user = await prisma.user.findUnique({
+    //       where: { email: params.identifier },
+    //       select: { emailVerified: true },
+    //     });
+
+    //     const verified = user?.emailVerified;
+    //     const template = verified
+    //       ? Signin({ path: params.url })
+    //       : Activation({ path: params.url });
+
+    //     const { data, error } = await resend.emails.send({
+    //       from: params.provider.from,
+    //       to: params.identifier,
+    //       subject: verified ? signin : activation,
+    //       react: template!,
+    //       headers: { 'X-Entity-Ref-ID': uuid() },
+    //     });
+
+    //     console.log(data?.id);
+    //     if (error) throw new Error(error.message);
+    //   },
+    // }),
   ],
   callbacks: {
     session: ({ session, user }) => ({
@@ -68,18 +73,18 @@ export const authOptions: NextAuthConfig = {
         id: user.id,
       },
     }),
-    authorized: async ({ request, auth }) => {
-      if (request.method == 'POST') {
-        const { authToken } = (await request.json()) ?? {};
-        // If the request has a valid auth token, it is authorized
-        // TODO: validate auth token
-        // const valid = await validateAuthToken(authToken)
-        if (authToken) return true;
-        return NextResponse.json('Invalid auth token', { status: 401 });
-      }
-      // Authenticated, otherwise redirect to signin page
-      return !!auth?.user;
-    },
+    // authorized: async ({ request, auth }) => {
+    //   if (request.method == 'POST') {
+    //     const { authToken } = (await request.json()) ?? {};
+    //     // If the request has a valid auth token, it is authorized
+    //     // TODO: validate auth token
+    //     // const valid = await validateAuthToken(authToken)
+    //     if (authToken) return true;
+    //     return NextResponse.json('Invalid auth token', { status: 401 });
+    //   }
+    //   // Authenticated, otherwise redirect to signin page
+    //   return !!auth?.user;
+    // },
   },
   pages: {
     signIn: '/signin',

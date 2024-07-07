@@ -1,10 +1,9 @@
 import NextAuth from 'next-auth';
-import { authOptions } from '@skohr/auth';
+import { authConfig } from '@skohr/auth';
 import { DEFAULT_REDIRECT, PUBLIC_ROUTES, ROOT } from '@skohr/auth/routes';
 import { NextResponse } from 'next/server';
 
-// TODO: move to src ROOT once accelerate is configured
-const { auth } = NextAuth(authOptions);
+const { auth } = NextAuth(authConfig);
 export default auth((req) => {
   const { nextUrl } = req;
   const { pathname } = nextUrl;

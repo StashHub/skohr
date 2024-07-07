@@ -3,7 +3,7 @@
 import { signIn, signOut } from '@skohr/auth';
 
 export async function signin(email: string, callbackUrl: string) {
-  return await signIn('nodemailer', {
+  return await signIn('resend', {
     email: email.toLowerCase(),
     redirect: false,
     redirectTo: callbackUrl,
