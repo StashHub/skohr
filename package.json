@@ -29,9 +29,6 @@
     ],
     "*.json": [
       "prettier --write"
-    ],
-    "packages/db/prisma/schema.prisma": [
-      "prisma format"
     ]
   },
   "devDependencies": {

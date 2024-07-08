@@ -3,6 +3,7 @@ import { authConfig } from '@skohr/auth';
 import { DEFAULT_REDIRECT, PUBLIC_ROUTES, ROOT } from '@skohr/auth/routes';
 import { NextResponse } from 'next/server';
 
+// TODO: leave here until we decide on prisma accelerate.
 const { auth } = NextAuth(authConfig);
 export default auth((req) => {
   const { nextUrl } = req;
