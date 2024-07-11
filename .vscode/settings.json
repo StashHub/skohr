@@ -1,9 +1,15 @@
 {
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
   "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
   "eslint.useFlatConfig": true,
   "eslint.workingDirectories": [
