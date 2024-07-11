@@ -7,8 +7,8 @@ import { createCallerFactory, createTRPCContext } from './trpc';
  * Create a server-side caller for the tRPC API.
  * @example
  * const trpc = createCaller(createContext);
- * const response = await trpc.post.all();
- *       ^? Post[]
+ * const response = await trpc.job.all();
+ *       ^? Job[]
  */
 const createCaller = createCallerFactory(appRouter);
 

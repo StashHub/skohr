@@ -1,4 +1,3 @@
-import { postRouter } from './routers/post.ts';
 import { createTRPCRouter } from './trpc';
 
 /**
@@ -9,8 +8,6 @@ import { createTRPCRouter } from './trpc';
  * @params The sub-routers
  * @returns The tRPC router for the application.
  */
-export const appRouter = createTRPCRouter({
-  post: postRouter,
-});
+export const appRouter = createTRPCRouter({});
 
 export type AppRouter = typeof appRouter;
