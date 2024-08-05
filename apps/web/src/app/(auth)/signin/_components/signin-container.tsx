@@ -5,7 +5,7 @@ import { buttonVariants } from '@skohr/ui/components/ui/button';
 import { Icons } from '@skohr/ui/components/ui/icons';
 import { UserAuthForm } from '@skohr/ui/components/user-auth-form';
 import { useState } from 'react';
-import { cn } from '@skohr/lib';
+import { cn } from '@skohr/utils';
 
 const SignInContainer = () => {
   const [sso, setSso] = useState(false);

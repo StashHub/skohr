@@ -14,7 +14,7 @@ const config = {
     '@skohr/auth',
     '@skohr/db',
     '@skohr/ui',
-    '@skohr/lib'
+    '@skohr/utils'
   ],
   images: {
     remotePatterns: [

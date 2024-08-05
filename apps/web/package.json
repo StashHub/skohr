@@ -17,7 +17,7 @@
     "@skohr/api": "workspace:*",
     "@skohr/auth": "workspace:*",
     "@skohr/db": "workspace:*",
-    "@skohr/lib": "workspace:*",
+    "@skohr/utils": "workspace:*",
     "@skohr/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "^5.35.5",

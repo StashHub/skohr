@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { buttonVariants } from '@skohr/ui/components/ui/button';
 import { UserAuthForm } from '@skohr/ui/components/user-auth-form';
 import { Icons } from '@skohr/ui/components/ui/icons';
-import { cn } from '@skohr/lib';
+import { cn } from '@skohr/utils';
 
 export const metadata: Metadata = {
   title: 'Signup',

@@ -18,7 +18,7 @@
   "dependencies": {
     "@auth/prisma-adapter": "^2.1.0",
     "@skohr/db": "workspace:*",
-    "@skohr/lib": "workspace:*",
+    "@skohr/utils": "workspace:*",
     "@skohr/transact": "workspace:*",
     "@t3-oss/env-nextjs": "^0.10.1",
     "next": "^14.1.1",

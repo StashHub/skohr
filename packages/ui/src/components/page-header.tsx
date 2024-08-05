@@ -1,6 +1,6 @@
 import Balance from 'react-wrap-balancer';
 
-import { cn } from '@skohr/lib';
+import { cn } from '@skohr/utils';
 
 const Header = ({
   className,

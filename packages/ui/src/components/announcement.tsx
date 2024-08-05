@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { Separator } from '@ui/components/ui/separator';
 import { Icons } from '@ui/components/ui/icons';
-import { cn } from '@skohr/lib';
+import { cn } from '@skohr/utils';
 
 type AnnouncementProps = React.HTMLAttributes<HTMLAnchorElement> & {
   href: string;

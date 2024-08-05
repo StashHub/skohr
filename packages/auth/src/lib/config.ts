@@ -5,14 +5,14 @@ import Google from 'next-auth/providers/google';
 import Resend from 'next-auth/providers/resend';
 import { NextResponse } from 'next/server';
 
-import { activation, signin } from '@skohr/lib/constants';
+import { activation, signin } from '@skohr/utils';
 import Signin from '@skohr/transact/emails/signin';
 import Activation from '@skohr/transact/emails/activation';
 
 import { env } from '../../env';
 import { prisma } from '@skohr/db';
 import { v4 as uuid } from 'uuid';
-import { resend } from '@skohr/lib/resend';
+import { resend } from '@skohr/utils';
 
 /**
  * Configuration options for NextAuth.js.

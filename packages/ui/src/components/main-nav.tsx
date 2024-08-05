@@ -18,7 +18,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@skohr/ui/components/ui/navigation-menu';
-import { cn } from '@skohr/lib';
+import { cn } from '@skohr/utils';
 
 type MainNavProps = PropsWithChildren & {
   items?: NavMenuItem[];
