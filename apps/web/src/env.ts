@@ -17,6 +17,10 @@ export const env = createEnv({
    */
   server: {
     DATABASE_URL: z.string().url(),
+    HMS_TOKEN_ENDPOINT: z.string().url(),
+    HMS_TEMPLATE_ID: z.string(),
+    HMS_ACCESS_KEY: z.string(),
+    HMS_SECRET_KEY: z.string(),
   },
 
   /**
