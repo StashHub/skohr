@@ -15,7 +15,7 @@
     "seed": "prisma db seed",
     "format": "prisma format",
     "lint": "eslint . --max-warnings 0",
-    "studio": "pnpm with-env prisma studio",
+    "studio": "pnpm with-env prisma studio --browser none",
     "generate-schemas": "prisma generate && prisma format",
     "clean": "rm -rf .turbo node_modules",
     "postinstall": "pnpm generate-schemas",
