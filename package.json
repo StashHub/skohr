@@ -19,7 +19,8 @@
     "test:watch": "turbo test:watch",
     "test:coverage": "turbo test:coverage",
     "prepare": "husky",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,md}\"",
     "ui:add": "turbo add"
   },
   "lint-staged": {
