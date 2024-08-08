@@ -1,5 +1,8 @@
 {
-  "extends": "@skohr/tsconfig/nextjs.json",
-  "include": ["."],
+  "extends": "@skohr/tsconfig/base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  },
+  "include": ["emails"],
   "exclude": ["node_modules"]
 }
