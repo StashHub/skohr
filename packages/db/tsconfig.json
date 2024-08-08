@@ -1,5 +1,5 @@
 {
-  "extends": "@skohr/tsconfig/base.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "extends": "@skohr/tsconfig/internal-package.json",
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

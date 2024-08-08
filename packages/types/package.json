@@ -2,7 +2,9 @@
   "name": "@skohr/types",
   "version": "0.0.0",
   "private": true,
-  "main": "index.js",
+  "files": [
+    "*.d.ts"
+  ],
   "scripts": {
     "clean": "rm -rf .turbo node_modules"
   },

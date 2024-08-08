@@ -1,5 +1,5 @@
 {
-  "extends": "@skohr/tsconfig/react.json",
+  "extends": "@skohr/tsconfig/internal-package.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": { "@ui/*": ["./src/*"] }

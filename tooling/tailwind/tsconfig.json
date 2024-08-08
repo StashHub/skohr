@@ -1,5 +1,8 @@
 {
   "extends": "@skohr/tsconfig/base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+  },
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }
