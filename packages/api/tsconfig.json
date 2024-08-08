@@ -1,5 +1,10 @@
 {
-  "extends": "@skohr/tsconfig/nextjs.json",
-  "include": [".", "../types/next-auth.d.ts"],
-  "exclude": ["dist", "build", "node_modules"]
+  "extends": "@skohr/tsconfig/internal-package.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "outDir": "dist",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
