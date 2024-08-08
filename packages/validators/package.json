@@ -1,0 +1,29 @@
+{
+  "name": "@skohr/validators",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc",
+    "lint": "eslint . --max-warnings 0",
+    "clean": "rm -rf .turbo node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@skohr/eslint-config": "workspace:*",
+    "@skohr/tsconfig": "workspace:*",
+    "eslint": "^8.57.0",
+    "typescript": "^5.5.4"
+  }
+}
