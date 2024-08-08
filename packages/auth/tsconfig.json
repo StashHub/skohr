@@ -1,8 +1,8 @@
 {
   "extends": "@skohr/tsconfig/base.json",
-  "include": [".", "../types/next-auth.d.ts"],
   "compilerOptions": {
     "jsx": "react-jsx"
   },
+  "include": [".", "../../packages/types/next-auth.d.ts"],
   "exclude": ["node_modules"]
 }

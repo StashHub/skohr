@@ -13,7 +13,8 @@
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "clean": "rm -rf .turbo node_modules"
+    "clean": "rm -rf .turbo node_modules",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.1.0",
