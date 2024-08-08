@@ -1,6 +1,6 @@
 {
   "name": "@skohr/transact",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "email dev -p 3001",
