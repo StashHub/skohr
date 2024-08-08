@@ -1,4 +1,5 @@
-import { createTRPCRouter } from './trpc';
+import { createTRPCRouter, publicProcedure } from '../trpc';
+import { roomRouter } from './room';
 
 /**
  * Create the main tRPC router for the application.
@@ -8,6 +9,9 @@ import { createTRPCRouter } from './trpc';
  * @params The sub-routers
  * @returns The tRPC router for the application.
  */
-export const appRouter = createTRPCRouter({});
+export const appRouter = createTRPCRouter({
+  healthcheck: publicProcedure.query(() => 'Yay! 🎉'),
+  room: roomRouter,
+});
 
 export type AppRouter = typeof appRouter;

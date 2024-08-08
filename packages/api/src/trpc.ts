@@ -1,34 +1,13 @@
 import { initTRPC, TRPCError } from '@trpc/server';
+import { type Context } from './context';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
-
-import type { Session } from '@skohr/auth';
-import { prisma } from '@skohr/db';
-
-/**
- * Defines the 'contexts' available in the backend API, allowing access to resources like
- * the database and session. Generates the 'internals' for a tRPC context, wrapped by the
- * API handler and RSC clients.
- *
- * @see https://trpc.io/docs/server/context
- */
-export const createTRPCContext = async (opts: {
-  headers: Headers;
-  session: Session | null;
-}) => {
-  const session = opts.session;
-  const source = opts.headers.get('x-trpc-source') ?? 'unknown';
-
-  console.log('tRPC request:', source, 'by', session?.user);
-
-  return { session, prisma };
-};
 
 /**
  * Initializes the tRPC API, connecting the context and transformer, and parsing
  * ZodErrors for type safety
  */
-const t = initTRPC.context<typeof createTRPCContext>().create({
+const t = initTRPC.context<Context>().create({
   transformer: superjson,
   errorFormatter({ shape, error }) {
     return {
@@ -60,15 +39,9 @@ export const createTRPCRouter = t.router;
  */
 export const publicProcedure = t.procedure;
 
-/**
- * Component for building protected (authenticated) queries and mutations on the tRPC API.
- * Verifies session validity and guarantees `ctx.session.user` is not null.
- *
- * @see https://trpc.io/docs/procedures
- */
-export const authProcedure = t.procedure.use(({ ctx, next }) => {
+const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
   if (!ctx.session || !ctx.session.user) {
-    throw new TRPCError({ code: 'UNAUTHORIZED' });
+    throw new TRPCError({ code: 'UNAUTHORIZED', message: 'Not authenticated' });
   }
   return next({
     ctx: {
@@ -77,3 +50,11 @@ export const authProcedure = t.procedure.use(({ ctx, next }) => {
     },
   });
 });
+
+/**
+ * Component for building protected (authenticated) queries and mutations on the tRPC API.
+ * Verifies session validity and guarantees `ctx.session.user` is not null.
+ *
+ * @see https://trpc.io/docs/procedures
+ */
+export const authProcedure = t.procedure.use(enforceUserIsAuthed);
