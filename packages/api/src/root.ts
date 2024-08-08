@@ -1,5 +1,5 @@
-import { createTRPCRouter, publicProcedure } from '../trpc';
-import { roomRouter } from './room';
+import { createTRPCRouter, publicProcedure } from './trpc';
+import { roomRouter } from './routers/room';
 
 /**
  * Create the main tRPC router for the application.
