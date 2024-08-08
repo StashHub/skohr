@@ -4,12 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        "next-env.d.ts",
-        ".vercel/output/**"
-      ]
+      "outputs": ["node_modules/.cache/tsbuildinfo.json", "dist/**"]
     },
     "dev": {
       "cache": false,
@@ -20,12 +15,16 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "typecheck": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     },
     "test": {
       "cache": false
     },
     "clean": {
+      "cache": false
+    },
+    "//#clean": {
       "cache": false
     },
     "test:watch": {
@@ -42,7 +41,8 @@
     },
     "@skohr/db#push": {
       "cache": false,
-      "dependsOn": ["@skohr/db#db:up"]
+      "dependsOn": ["@skohr/db#db:up"],
+      "interactive": true
     },
     "@skohr/db#studio": {
       "cache": false
@@ -62,7 +62,8 @@
       "cache": false
     },
     "@skohr/ui#add": {
-      "cache": false
+      "cache": false,
+      "interactive": true
     }
   },
   "globalEnv": [
@@ -81,6 +82,7 @@
   "globalPassThroughEnv": [
     "SKIP_ENV_VALIDATION",
     "NODE_ENV",
+    "CI",
     "VERCEL",
     "VERCEL_ENV",
     "VERCEL_URL"
